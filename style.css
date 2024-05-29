@@ -30,7 +30,7 @@ body {
   position: relative;
   width: var(--hand-size);
   height: var(--hand-size);
-  background: url(./hand_1.png);
+  background: url(hand_1.png);
   background-size: var(--hand-size);
 }
 
@@ -47,7 +47,7 @@ body {
 }
 
 .scan .hand::before {
-  background: url(./hand_2.png);
+  background: url(hand_2.png);
   background-size: var(--hand-size);
   animation: animate 3s ease-in-out infinite;
 }
@@ -107,7 +107,7 @@ body {
 }
 
 .scan .hand .lines::before {
-  background: url(./lines.png);
+  background: url(lines.png);
   animation: handLines 3s ease-in-out infinite;
 }
 
@@ -123,7 +123,7 @@ body {
 }
 
 .scan .hand .lines::after {
-  background: url(./points.png);
+  background: url(points.png);
   animation: handPoints 3s ease-in-out infinite;
 }
 
