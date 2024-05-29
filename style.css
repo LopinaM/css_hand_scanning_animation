@@ -1,0 +1,138 @@
+:root {
+  --primary-color: #3fefef;
+  --bg-color: #111;
+  --hand-size: 500px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: consolas;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: var(--bg-color);
+}
+
+.scan {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scan .hand {
+  position: relative;
+  width: var(--hand-size);
+  height: var(--hand-size);
+  background: url(./hand_1.png);
+  background-size: var(--hand-size);
+}
+
+.scan .hand::before,
+.scan .hand::after,
+.scan .hand .lines::before,
+.scan .hand .lines::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--hand-size);
+  height: var(--hand-size);
+}
+
+.scan .hand::before {
+  background: url(./hand_2.png);
+  background-size: var(--hand-size);
+  animation: animate 3s ease-in-out infinite;
+}
+
+@keyframes animate {
+  0%,
+  100% {
+    height: 0%;
+  }
+  50% {
+    height: 100%;
+  }
+}
+
+.scan .hand::after {
+  height: 8px;
+  background: var(--primary-color);
+  filter: drop-shadow(0 0 20px var(--primary-color))
+    drop-shadow(0 0 60px var(--primary-color));
+  animation: animateLines 3s ease-in-out infinite;
+}
+
+@keyframes animateLines {
+  0%,
+  100% {
+    top: 0%;
+  }
+  50% {
+    top: 100%;
+  }
+}
+
+.scan h3 {
+  text-transform: uppercase;
+  font-size: 2em;
+  letter-spacing: 2px;
+  margin-top: 20px;
+  color: var(--primary-color);
+  filter: drop-shadow(0 0 20px var(--primary-color))
+    drop-shadow(0 0 60px var(--primary-color));
+  animation: animateText 0.5s steps(1) infinite;
+}
+
+@keyframes animateText {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.scan .hand .lines {
+  position: absolute;
+  inset: 0;
+}
+
+.scan .hand .lines::before {
+  background: url(./lines.png);
+  animation: handLines 3s ease-in-out infinite;
+}
+
+@keyframes handLines {
+  0%,
+  25%,
+  100% {
+    height: 0%;
+  }
+  50% {
+    height: 100%;
+  }
+}
+
+.scan .hand .lines::after {
+  background: url(./points.png);
+  animation: handPoints 3s ease-in-out infinite;
+}
+
+@keyframes handPoints {
+  0%,
+  100% {
+    height: 0%;
+  }
+  50% {
+    height: 100%;
+  }
+}
