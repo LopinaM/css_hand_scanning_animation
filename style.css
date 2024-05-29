@@ -1,9 +1,3 @@
-:root {
-  --primary-color: #3fefef;
-  --bg-color: #111;
-  --hand-size: 500px;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -16,7 +10,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: var(--bg-color);
+  background: #111;
 }
 
 .scan {
@@ -28,27 +22,21 @@ body {
 
 .scan .hand {
   position: relative;
-  width: var(--hand-size);
-  height: var(--hand-size);
+  width: 500px;
+  height: 500px;
   background: url(hand_1.png);
-  background-size: var(--hand-size);
+  background-size: 500px;
 }
 
-.scan .hand::before,
-.scan .hand::after,
-.scan .hand .lines::before,
-.scan .hand .lines::after {
+.scan .hand::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
-  width: var(--hand-size);
-  height: var(--hand-size);
-}
-
-.scan .hand::before {
+  width: 100%;
+  height: 100%;
   background: url(hand_2.png);
-  background-size: var(--hand-size);
+  background-size: 500px;
   animation: animate 3s ease-in-out infinite;
 }
 
@@ -63,10 +51,14 @@ body {
 }
 
 .scan .hand::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 8px;
-  background: var(--primary-color);
-  filter: drop-shadow(0 0 20px var(--primary-color))
-    drop-shadow(0 0 60px var(--primary-color));
+  background: #3fefef;
+  filter: drop-shadow(0 0 20px #3fefef) drop-shadow(0 0 60px #3fefef);
   animation: animateLines 3s ease-in-out infinite;
 }
 
@@ -85,9 +77,8 @@ body {
   font-size: 2em;
   letter-spacing: 2px;
   margin-top: 20px;
-  color: var(--primary-color);
-  filter: drop-shadow(0 0 20px var(--primary-color))
-    drop-shadow(0 0 60px var(--primary-color));
+  color: #3fefef;
+  filter: drop-shadow(0 0 20px #3fefef) drop-shadow(0 0 60px #3fefef);
   animation: animateText 0.5s steps(1) infinite;
 }
 
@@ -107,7 +98,14 @@ body {
 }
 
 .scan .hand .lines::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 500px;
+  height: 500px;
   background: url(lines.png);
+  background-size: 500px;
   animation: handLines 3s ease-in-out infinite;
 }
 
@@ -123,7 +121,14 @@ body {
 }
 
 .scan .hand .lines::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 500px;
+  height: 500px;
   background: url(points.png);
+  background-size: 500px;
   animation: handPoints 3s ease-in-out infinite;
 }
 
